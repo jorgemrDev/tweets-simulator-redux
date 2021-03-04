@@ -2,17 +2,15 @@ const initialProps = {
   stateModalAddTweet: false,
 };
 
-export default function (state = initialProps, action) {
+export default function reducer(state = initialProps, action) {
   switch (action.type) {
     case "STATE_ADD_TWEET_MODAL":
       return {
         ...state,
         stateModalAddTweet: action.payload,
       };
-      break;
 
     default:
       return state;
-      break;
   }
 }
