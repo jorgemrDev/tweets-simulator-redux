@@ -1,7 +1,18 @@
 import { Container, Navbar, Button } from "react-bootstrap";
 import Logo from "../assets/img/redux.png";
+import { useDispatch } from "react-redux";
+import { opencloseAddTweetmodalAction } from "../actions/modalsActions";
 
 export default function Menu() {
+  const dispatch = useDispatch();
+  const openCloseAddTweetmodal = (state) => {
+    dispatch(opencloseAddTweetmodalAction(state));
+  };
+
+  const openModal = () => {
+    openCloseAddTweetmodal(true);
+  };
+
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -15,7 +26,9 @@ export default function Menu() {
           ></img>
           Tweets Simulator Redux
         </Navbar.Brand>
-        <Button variant="outline-success">Nuevo Tweet</Button>
+        <Button variant="outline-success" onClick={openModal}>
+          Nuevo Tweet
+        </Button>
       </Container>
     </Navbar>
   );
